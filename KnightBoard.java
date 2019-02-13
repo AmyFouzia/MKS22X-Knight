@@ -39,8 +39,8 @@ public class KnightBoard{
     private int[][]board;
 
 //Constructor:
-    public KnightBoard(int size){
-      board = new int[size][size];
+    public KnightBoard(int len, int width){
+      board = new int[len][width];
     }
 
     private boolean addKnight(int r, int c){
@@ -90,7 +90,21 @@ public class KnightBoard{
   I will not be testing boards that have a rows*cols that is >= 100, as the program would take a long time to complete.
 */
     public String toString(){
+      String res = "";
 
+      for(int i = 0; i < board.length; i++){
+        for(int j = 0; j < board[i].length; j++){
+          if(board[i][j] == -1){
+            res += "K";
+          }
+          else{
+            res += "_";
+          }
+          res+= " ";
+        }
+        res += "\n";
+      }
+      return res; //similar to wordSearch
     }
 
 //should work on boards where the number of squares is under 100.
@@ -116,6 +130,28 @@ public class KnightBoard{
 
     private int countSolutionsH(){
 
+    }
+
+    public static void main(String[] args){
+      //testing purposes
+      QueenBoard board = new QueenBoard(4);
+
+      board.solve();
+
+      board.addQueen(0,0);
+      System.out.println(board);
+
+      board.addQueen(2,0);
+      System.out.println(board);
+
+    }
+
+    public void clear(){
+      for (int r = 0; r < board.length; r++){
+        for (int c = 0; c < board[r].length; c++){
+          board[r][c] = 0;
+        }
+      }
     }
 
 }
