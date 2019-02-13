@@ -44,11 +44,48 @@ public class KnightBoard{
     }
 
     private boolean addKnight(int r, int c){
+      if (board[r][c] != 0){
+        return false; //only empty spaces
+      }
 
+      board[r][c] = -1; //Knight
+
+      for(int i = 1; i <board.length - c; i++){
+        board[r][i+c] ++; //sqs. to the right
+
+        //add one for threatened squares
+        if(r-i >= 0){
+          board[r-i][c+i] ++;
+        }
+
+        if(r+i < board.length){
+          board[r + i][c + i]++;
+        }
+      }
+
+      return true;
     }
 
     private boolean removeKnight(int r, int c){
+      if (board[r][c] != -1){
+          return false; //cant rm a Knight if there is none
+        }
 
+        board[r][c] = 0;
+
+        for(int i = 0; i < board.length - c; i++){
+          board[r][i+c] --; //sqs. to the right
+
+          //same as addqu but subtract 1
+          if(r-i >= 0){
+            board[r-i][c+i] --;
+          }
+
+          if(r+i < board.length){
+            board[r + i][c + i] --;
+          }
+        }
+        return true;
     }
 
 /*
@@ -115,33 +152,33 @@ public class KnightBoard{
   @returns the number of solutions from the starting position specified
 */
     public boolean solve(int startRow, int startCol){
-
+      return true;
     }
 
     private boolean solveH(int startRow, int startCol, int level){
-
+      return true;
     }
 
 //would only work on smaller boards! The exact sizes will be determined later.
 
     public int countSolutions(int startRow, int startCol){
-
+      return true;
     }
 
     private int countSolutionsH(){
-
+      return true;
     }
 
     public static void main(String[] args){
       //testing purposes
-      QueenBoard board = new QueenBoard(4);
+      KnightBoard board = new KnightBoard(4);
 
       board.solve();
 
-      board.addQueen(0,0);
+      board.addKnight(0,0);
       System.out.println(board);
 
-      board.addQueen(2,0);
+      board.addKnight(2,0);
       System.out.println(board);
 
     }
