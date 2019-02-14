@@ -4,7 +4,7 @@ public class KnightBoard{
     Selecting a series of moves for a knight such that each square
     is visited exactly once. If the knight ends on a square that is
     reachable by a knight's move from the beginning square, the tour
-    is closed, otherwise it is open. The image below is an open tour.
+    is closed, otherwise it is open.
 
     We represent this with numbers from 1 to K , where K is the area
     of the board.
@@ -48,7 +48,7 @@ public class KnightBoard{
         return false; //only empty spaces
       }
 
-      board[r][c] -- ; //Knight
+      board[r][c] ++ ; //Knight
       return true;
     }
 
@@ -57,10 +57,10 @@ public class KnightBoard{
           return false; //cant rm a Knight if there is none
         }
 
-        board[r][c] = 0;
+        board[r][c] --;
         return true;
     }
-
+ The image below is an open tour.
 /*
   see format for toString below
   blank boards display 0's as underscores
@@ -102,19 +102,8 @@ public class KnightBoard{
     public String toString(){
       String res = "";
 
-      for(int i = 0; i < board.length; i++){
-        for(int j = 0; j < board[i].length; j++){
-          if(board[i][j] == -1){
-            res += "K";
-          }
-          else{
-            res += "_";
-          }
-          res+= " ";
-        }
-        res += "\n";
-      }
-      return res; //similar to wordSearch
+
+      return res;
     }
 
 //should work on boards where the number of squares is under 100.
@@ -129,20 +118,24 @@ public class KnightBoard{
         throw new IllegalStateException();
       }
 
-      if (startRow < 0 || startRow > board.length || startCol < 0 || startCol > board.length){
-        throw new IllegalStateException();
-      }
-      
-      return true;
+      int level = 0;
+
+      solveH(startRow, startCol, level);
     }
 
     private boolean solveH(int startRow, int startCol, int level){
+      board.addKnight(startRow, startCol);
+
       return true;
     }
 
 //would only work on smaller boards! The exact sizes will be determined later.
 
     public int countSolutions(int startRow, int startCol){
+      if(isExcep()){
+        throw new IllegalStateException();
+      }
+
       return true;
     }
 
@@ -173,14 +166,22 @@ public class KnightBoard{
     }
 
     public boolean isExcep(){
+      int res = 0;
+
       for (int r = 0; r < board.length; r++){
         for (int c = 0; c < board[r].length; c++){
           if (board[r][c] != 0){
-            return true;
+            res++;
           }
         }
       }
-      return false;
+
+      if (startRow < 0 || startRow > board.length || startCol < 0 || startCol > board.length){
+        res++;
+      }
+
+      if(res != 0){return true;}
+      else{return false;}
     }
 
 }
