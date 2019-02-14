@@ -125,6 +125,17 @@ public class KnightBoard{
   @returns the number of solutions from the starting position specified
 */
     public boolean solve(int startRow, int startCol){
+      for(int i = 0; i < board.length; i++){
+        for(int j = 0; j < board[i].length; j++){
+          if(board[i][j] != 0){
+            throw new IllegalStateException();
+          }
+        }
+      }
+
+      if (startRow < 0 || startRow > board.length || startCol < 0 || startCol > board.length){
+        throw new IllegalStateException();
+      }
       return true;
     }
 
