@@ -124,9 +124,21 @@ public class KnightBoard{
     }
 
     private boolean solveH(int startRow, int startCol, int level){
-      board.addKnight(startRow, startCol);
+      //base case
+      if(){
 
-      return true;
+      }
+
+      //recursive backtracking
+      /*ref code from queens
+      for(int i =0; i < board.length; i++){ //for loop works better than the while
+        if(addQueen(i, c)){
+          if(solveHelp(c + 1)){
+            return true; //try next col
+          }
+          removeQueen(i, c); //rm and try again
+        }
+      }*/
     }
 
 //would only work on smaller boards! The exact sizes will be determined later.
