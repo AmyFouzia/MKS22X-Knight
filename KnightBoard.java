@@ -48,21 +48,7 @@ public class KnightBoard{
         return false; //only empty spaces
       }
 
-      board[r][c] = -1; //Knight
-
-      for(int i = 1; i <board.length - c; i++){
-        board[r][i+c] ++; //sqs. to the right
-
-        //add one for threatened squares
-        if(r-i >= 0){
-          board[r-i][c+i] ++;
-        }
-
-        if(r+i < board.length){
-          board[r + i][c + i]++;
-        }
-      }
-
+      board[r][c] -- ; //Knight
       return true;
     }
 
@@ -72,19 +58,6 @@ public class KnightBoard{
         }
 
         board[r][c] = 0;
-
-        for(int i = 0; i < board.length - c; i++){
-          board[r][i+c] --; //sqs. to the right
-
-          //same as addqu but subtract 1
-          if(r-i >= 0){
-            board[r-i][c+i] --;
-          }
-
-          if(r+i < board.length){
-            board[r + i][c + i] --;
-          }
-        }
         return true;
     }
 
