@@ -36,11 +36,22 @@ public class KnightBoard{
 */
 
 //Instance Variables:
-    private int[][]board;
+    private int[][] board;
+    private int[][] possMoves;
+    private int[][] track;
+    private int row;
+    private int col;
 
 //Constructor:
     public KnightBoard(int len, int width){
       board = new int[len][width];
+      row = len;
+      col = width;
+      possMoves = new int[][] { {-2, -1}, {-2, 1},
+                                {-1, 2}, {1, 2},
+                                {2, 1}, {2, -1},
+                                {1, -2}, {-1, -2} };
+      track = new int[len][width];
     }
 
     private boolean addKnight(int r, int c){
@@ -157,15 +168,10 @@ public class KnightBoard{
 
     public static void main(String[] args){
       //testing purposes
-      KnightBoard board = new KnightBoard(4);
+      KnightBoard board = new KnightBoard(5, 6);
 
-      board.solve();
-
-      board.addKnight(0,0);
-      System.out.println(board);
-
-      board.addKnight(2,0);
-      System.out.println(board);
+      System.out.println(board);;
+      System.out.println(board.solve(0,0));
 
     }
 
