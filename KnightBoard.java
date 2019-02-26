@@ -159,13 +159,15 @@ public class KnightBoard{
       }
 
       //recursive step
-      if(solveHelper(startRow + possMoves[i][0], col + possMoves[i][1], level + 1)){
-          return true;
+      for (int i = 0; i < possMoves.length; i++){
+        if(test(startRow, startCol, level)){
+          if (solveH(startRow + possMoves[i][0], startCol + possMoves[i][1], level +1)){
+            return true;
+          }
+          borad[startRow][startCol] = 0;
         }
-        board[startRow][startCol] = 0;
       }
-    }
-    return false;
+      return false;
     }
 
       //recursive backtracking
