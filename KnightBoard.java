@@ -153,7 +153,19 @@ public class KnightBoard{
     }
 
     private boolean solveH(int startRow, int startCol, int level){
-      return true;
+      //base case
+      if(level > (board.length * board[0].length)){
+        return true;
+      }
+
+      //recursive step
+      if(solveHelper(startRow + possMoves[i][0], col + possMoves[i][1], level + 1)){
+          return true;
+        }
+        board[startRow][startCol] = 0;
+      }
+    }
+    return false;
     }
 
       //recursive backtracking
@@ -186,9 +198,12 @@ public class KnightBoard{
       //testing purposes
       KnightBoard board = new KnightBoard(5, 6);
 
-      System.out.println(board);;
-      System.out.println(board.solve(0,0));
+      System.out.println(board.isExcep());
 
+      System.out.println(board);;
+
+      board.solve(0, 0);
+      System.out.println(board);
     }
 
     public void clear(){
