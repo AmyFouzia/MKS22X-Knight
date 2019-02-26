@@ -44,6 +44,10 @@ public class KnightBoard{
 
 //Constructor:
     public KnightBoard(int len, int width){
+      if(startingRows < 0 || startingCols < 0){
+        throw new IllegalArgumentException();
+      }
+
       board = new int[len][width];
       row = len;
       col = width;
@@ -54,24 +58,12 @@ public class KnightBoard{
       track = new int[len][width];
     }
 
-    private boolean addKnight(int r, int c){
-      if (board[r][c] != 0){
-        return false; //only empty spaces
-      }
+    public void tracker(){
 
-      board[r][c] ++ ; //Knight
-      return true;
     }
 
-    private boolean removeKnight(int r, int c){
-      if (board[r][c] != -1){
-          return false; //cant rm a Knight if there is none
-        }
 
-        board[r][c] --;
-        return true;
-    }
- The image below is an open tour.
+
 /*
   see format for toString below
   blank boards display 0's as underscores
@@ -112,7 +104,21 @@ public class KnightBoard{
 */
     public String toString(){
       String res = "";
-
+      for (int i = 0; row < board.length; i++){
+        for (int j = 0; j < board[i].length; j++){
+          if (i * j >= 10 && board[i][j] < 10){
+            res += " ";
+          }
+          if(board[i][j] == 0){
+            res += "_";
+          }
+          else{
+            res += board[i][j];
+          }
+          res += " ";
+        }
+        res += "\n";
+      }
 
       return res;
     }
