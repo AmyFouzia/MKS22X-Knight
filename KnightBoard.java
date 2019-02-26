@@ -135,16 +135,14 @@ public class KnightBoard{
         throw new IllegalStateException();
       }
 
-      int level = 0;
+      int level = 1;
 
       solveH(startRow, startCol, level);
     }
 
     private boolean solveH(int startRow, int startCol, int level){
-      //base case
-      if(){
-
-      }
+      return true;
+    }
 
       //recursive backtracking
       /*ref code from queens
