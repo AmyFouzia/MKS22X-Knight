@@ -130,6 +130,18 @@ public class KnightBoard{
   or out of bounds.
   @returns the number of solutions from the starting position specified
 */
+
+    public boolean test(int r, int c, int level){
+      if(r < 0 || c < 0 || r >= board.length || c >= board[r].length){ //out of bounds?
+        return false;
+      }
+      if(board[r][c] != 0){ //has sq been visited?
+        return false;
+      }
+      board[r][c] = level; //move
+      return true;
+    }
+
     public boolean solve(int startRow, int startCol){
       if(isExcep()){
         throw new IllegalStateException();
