@@ -230,22 +230,24 @@ public class KnightBoard{
       if(row < 0 ||
          startCol < 0 ||
          startRow >= board.length ||
-         startCol >= board.length){
+         startCol >= board[startRow].length){
         return 0;
       }
 
-      if(){
-
+      if(level == (board.length * board[0].length)){
+        return 1;
       }
 
-      if(){
-        
+      if(board[startRow][startCol] != 0){
+        return 0;
       }
 
       //recursive backtracking
-      for(){  //loop thru
-          res += countSolutionsH();
-          //remove knight after
+      for(int i = 0; i < possMoves.length; i++){  //loop thru
+          board[row][col] = level;
+          res += countSolutionsH(startRow, startCol, level);
+          //remove knight after (like that q i got wrong on the quiz haha)
+          board[startRow][startCol] = 0;
       }
 
       return res;
