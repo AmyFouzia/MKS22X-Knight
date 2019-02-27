@@ -225,14 +225,16 @@ public class KnightBoard{
 
     private int countSolutionsH(int startRow, int startCol, int level){
       int res = 0;
-      //base cases
-      if(row == 0){
+      //base cases (3?)
+       //out of bounds, no revisits, complete board
+      if(){
         return 0;
       }
 
       //recursive backtracking
-      if(row != 0 ){
-          res ++;
+      for(){  //loop thru
+          res += countSolutionsH();
+          //remove knight after
       }
 
       return res;
