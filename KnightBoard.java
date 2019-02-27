@@ -210,6 +210,8 @@ public class KnightBoard{
 //would only work on smaller boards! The exact sizes will be determined later.
 
   public int countSolutions(int startRow, int startCol){
+      clear();
+
       if(isExcep()){
         throw new IllegalStateException();
       }
@@ -218,7 +220,7 @@ public class KnightBoard{
         throw new IllegalStateException();
       }
 
-      return 1;
+      return countSolutionsH(startRow, startCol, 1);
     }
 
     private int countSolutionsH(){
