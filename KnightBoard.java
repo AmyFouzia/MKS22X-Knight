@@ -44,7 +44,7 @@ public class KnightBoard{
 
 //Constructor:
     public KnightBoard(int len, int width){
-      if(startingRows < 0 || startingCols < 0){
+      if(len < 0 || width < 0){
         throw new IllegalArgumentException();
       }
 
@@ -180,20 +180,20 @@ public class KnightBoard{
           removeQueen(i, c); //rm and try again
         }
       }*/
-    }
+
 
 //would only work on smaller boards! The exact sizes will be determined later.
 
-    public int countSolutions(int startRow, int startCol){
+  public int countSolutions(int startRow, int startCol){
       if(isExcep()){
         throw new IllegalStateException();
       }
 
-      return true;
+      return 1;
     }
 
     private int countSolutionsH(){
-      return true;
+      return 1;
     }
 
     public static void main(String[] args){
