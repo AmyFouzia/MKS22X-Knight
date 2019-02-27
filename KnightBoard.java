@@ -223,7 +223,7 @@ public class KnightBoard{
       return countSolutionsH(startRow, startCol, 1);
     }
 
-    private int countSolutionsH(){
+    private int countSolutionsH(int startRow, int startCol, int level){
       return 1;
     }
 
