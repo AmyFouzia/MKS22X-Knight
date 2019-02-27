@@ -227,8 +227,19 @@ public class KnightBoard{
       int res = 0;
       //base cases (3?)
        //out of bounds, no revisits, complete board
-      if(){
+      if(row < 0 ||
+         startCol < 0 ||
+         startRow >= board.length ||
+         startCol >= board.length){
         return 0;
+      }
+
+      if(){
+
+      }
+
+      if(){
+        
       }
 
       //recursive backtracking
