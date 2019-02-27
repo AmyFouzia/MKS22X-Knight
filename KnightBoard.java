@@ -67,6 +67,16 @@ public class KnightBoard{
           }
 
           else{
+            int res = 0;
+            for(int a = 0; i < possMoves.length; a++){
+              int row = i + possMoves[a][0];
+              int col = j + possMoves[a][0];
+
+              if(!(row < 0 || col < 0 || row >= board.length || col >= board[i].length)){
+                res++;
+              }
+            }
+            track[i][j] = res;
           }
 
         }
