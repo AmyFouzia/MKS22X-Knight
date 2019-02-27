@@ -58,8 +58,7 @@ public class KnightBoard{
       track = new int[len][width];
     }
 
-    public void tracker(int row, int col){
-      int[][] track = new int[r][c];
+    public void tracker(){
 
       for(int i = 0; i < track.length; i++){
         for(int j = 0; j < track[i].length; j++){
