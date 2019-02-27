@@ -147,9 +147,13 @@ public class KnightBoard{
         throw new IllegalStateException();
       }
 
+      if (startRow < 0 || startRow > board.length || startCol < 0 || startCol > board.length){
+        throw new IllegalStateException();
+      }
+
       int level = 1;
 
-      solveH(startRow, startCol, level);
+      return solveH(startRow, startCol, level);
     }
 
     private boolean solveH(int startRow, int startCol, int level){
@@ -164,7 +168,7 @@ public class KnightBoard{
           if (solveH(startRow + possMoves[i][0], startCol + possMoves[i][1], level +1)){
             return true;
           }
-          borad[startRow][startCol] = 0;
+          board[startRow][startCol] = 0;
         }
       }
       return false;
@@ -186,6 +190,10 @@ public class KnightBoard{
 
   public int countSolutions(int startRow, int startCol){
       if(isExcep()){
+        throw new IllegalStateException();
+      }
+
+      if (startRow < 0 || startRow > board.length || startCol < 0 || startCol > board.length){
         throw new IllegalStateException();
       }
 
@@ -225,10 +233,6 @@ public class KnightBoard{
             res++;
           }
         }
-      }
-
-      if (startRow < 0 || startRow > board.length || startCol < 0 || startCol > board.length){
-        res++;
       }
 
       if(res != 0){return true;}
