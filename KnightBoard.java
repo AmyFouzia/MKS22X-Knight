@@ -224,7 +224,18 @@ public class KnightBoard{
     }
 
     private int countSolutionsH(int startRow, int startCol, int level){
-      return 1;
+      int res = 0;
+      //base cases
+      if(row == 0){
+        return 0;
+      }
+
+      //recursive backtracking
+      if(row != 0 ){
+          res ++;
+      }
+
+      return res;
     }
 
     public static void main(String[] args){
