@@ -59,9 +59,15 @@ public class KnightBoard{
     }
 
     public void tracker(){
-
+//refer to map on notes
       for(int i = 0; i < track.length; i++){
         for(int j = 0; j < track[i].length; j++){
+          if(i > 1 && i < track.length -2 && j > 1 && j < track[i].length - 2){
+            track[i][j] = 8;
+          }
+
+          else{
+          }
 
         }
       }
