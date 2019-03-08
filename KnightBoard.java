@@ -209,7 +209,7 @@ public class KnightBoard{
 
 //would only work on smaller boards! The exact sizes will be determined later.
 
-  public int countSolutions(int startRow, int startCol){
+/*  public int countSolutions(int startRow, int startCol){
       clear();
 
       if(isExcep()){
@@ -223,7 +223,7 @@ public class KnightBoard{
       return countSolutionsH(startRow, startCol, 1);
     }
 
-    private int countSolutionsH(int startRow, int startCol, int level){
+  private int countSolutionsH(int startRow, int startCol, int level){
       int res = 0;
       //base cases (3?)
        //out of bounds, no revisits, complete board
@@ -251,7 +251,7 @@ public class KnightBoard{
       }
 
       return res;
-    }
+    }*/
 
     public static void main(String[] args){
       //testing purposes
