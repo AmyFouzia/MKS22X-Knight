@@ -68,9 +68,9 @@ public class KnightBoard{
 
           else{
             int res = 0;
-            for(int a = 0; i < possMoves.length; a++){
+            for(int a = 0; a < possMoves.length; a++){
               int row = i + possMoves[a][0];
-              int col = j + possMoves[a][0];
+              int col = j + possMoves[a][1];
 
               if(!(row < 0 || col < 0 || row >= board.length || col >= board[i].length)){
                 res++;
@@ -144,6 +144,8 @@ public class KnightBoard{
       return res;
     }
 
+
+
 //should work on boards where the number of squares is under 100.
 /*
   @throws IllegalStateException when the board contains non-zero values.
@@ -168,13 +170,11 @@ public class KnightBoard{
         throw new IllegalStateException();
       }
 
-      if (startRow < 0 || startRow > board.length || startCol < 0 || startCol > board.length){
+      if (startRow < 0 || startRow >= board.length || startCol < 0 || startCol >= board.length){
         throw new IllegalStateException();
       }
 
-      int level = 1;
-
-      return solveH(startRow, startCol, level);
+      return solveH(startRow, startCol, 1);
     }
 
     private boolean solveH(int startRow, int startCol, int level){
@@ -209,14 +209,12 @@ public class KnightBoard{
 
 //would only work on smaller boards! The exact sizes will be determined later.
 
-/*  public int countSolutions(int startRow, int startCol){
-      clear();
-
+  public int countSolutions(int startRow, int startCol){
       if(isExcep()){
         throw new IllegalStateException();
       }
 
-      if (startRow < 0 || startRow > board.length || startCol < 0 || startCol > board.length){
+      if (startRow < 0 || startRow >= board.length || startCol < 0 || startCol >= board[0].length){
         throw new IllegalStateException();
       }
 
@@ -227,10 +225,7 @@ public class KnightBoard{
       int res = 0;
       //base cases (3?)
        //out of bounds, no revisits, complete board
-      if(row < 0 ||
-         startCol < 0 ||
-         startRow >= board.length ||
-         startCol >= board[startRow].length){
+      if(startRow < 0 || startCol < 0 ||startRow >= board.length || startCol >= board[startRow].length){
         return 0;
       }
 
@@ -244,14 +239,14 @@ public class KnightBoard{
 
       //recursive backtracking
       for(int i = 0; i < possMoves.length; i++){  //loop thru
-          board[row][col] = level;
-          res += countSolutionsH(startRow, startCol, level);
+          board[startRow][startCol] = level;
+          res += countSolutionsH(startRow + possMoves[i][0], startCol + possMoves[i][1], level + 1);
           //remove knight after (like that q i got wrong on the quiz haha)
           board[startRow][startCol] = 0;
       }
 
       return res;
-    }*/
+    }
 
     public static void main(String[] args){
       //testing purposes
@@ -287,5 +282,4 @@ public class KnightBoard{
       if(res != 0){return true;}
       else{return false;}
     }
-
 }
